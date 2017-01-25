@@ -77,7 +77,7 @@ app.get('/list', function(req, res){
 
 function uploadFileToS3(FilePath, FileName) {
     fs.readFile(FilePath, function (err, data) {
-        params = {Bucket: myBucket, Key: FileName, Body: data, ACL: "public-read", ContentType: "application/pdf"};
+        params = {Bucket: myBucket, Key: FileName, Body: data, ACL: "public-read"};
         s3.putObject(params, function (err, data) {
             if (err) {
                 console.log(err)
